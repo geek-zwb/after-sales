@@ -1,0 +1,72 @@
+<section class="mt20">
+    <!--修改产品分类-->
+    <div class="main animsition">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <a onclick="history.back()" class="panel-title floatRight"><i class="fa fa-reply"></i></a>
+                         <h3 class="panel-title">修改产品分类</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form class="form-horizontal" role="form" ng-submit="fnEditOrderCategory()">
+                            <div class="form-group">
+                                <label for="orderCategoryName" class="col-md-3 control-label">分类名称</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="orderCategoryName" id="orderCategoryName" autofocus ng-model="orderCategoryInfo.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderCategoryEnName" class="col-md-3 control-label">英文名</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="orderCategoryEnName" id="orderCategoryEnName" autofocus ng-model="orderCategoryInfo.english_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight" class="col-md-3 control-label">重量</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="weight" id="weight" autofocus ng-model="orderCategoryInfo.weight">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="price" class="col-md-3 control-label">价格</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="price" id="price" autofocus ng-model="orderCategoryInfo.price">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="is_default" class="control-label col-md-3">设为默认产品分类</label>
+                                <div class="col-md-5">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="is_default" ng-value="1" ng-model="orderCategoryInfo.is_default">是
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="is_default" ng-value="0" ng-model="orderCategoryInfo.is_default"> 否
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary btn-md">
+                                        <i class="fa fa-plus-circle"></i>
+                                        修改
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-show="orderCategoryInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>正在提交...</strong>
+                        </div>
+                        <div ng-if="orderCategoryInfo.editOrderCategory" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>修改产品分类成功!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

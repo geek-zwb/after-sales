@@ -1,0 +1,18 @@
+/*指令集合
+===================================*/
+/*start magnify-picture*/
+.magnify-picture {
+    position: fixed;
+    left:0;
+    bottom:300px;
+    float: left;
+    z-index:8000;
+}
+.magnify-picture img{
+    width: 400px;
+    height:auto;
+}
+/*end magnify-picture*/
+
+/*end指令集合
+===================================*/

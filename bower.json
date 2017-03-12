@@ -1,0 +1,20 @@
+{
+  "name": "ordermanagesystem",
+  "description": "订单管理系统",
+  "authors": "newbeta",
+  "dependencies": {
+    "jquery": "~2.2.x",
+    "bootstrap": "~3.3.7",
+    "font-awesome": "^4.5.0",
+    "angular": "1.6.2",
+    "angular-ui-router": "~0.3.1",
+    "angular-sanitize": "^1.4.8",
+    "angular-touch": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-bootstrap": "^2.5.0",
+    "oclazyload": "^1.1.0",
+    "angular-dialog-service": "^5.3.0",
+    "textAngular": "^1.5.16",
+    "ng-table": "1.0.0-beta.9"
+  }
+}

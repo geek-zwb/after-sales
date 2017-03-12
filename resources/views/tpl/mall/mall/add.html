@@ -1,0 +1,83 @@
+<section class="mt20">
+    <!--新增订单状态-->
+    <div class="main animsition">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <a onclick="history.back()" class="panel-title floatRight"><i class="fa fa-reply"></i></a>
+                         <h3 class="panel-title">新增店铺</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form class="form-horizontal" role="form" ng-submit="fnAddMall()">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">店铺名称</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="name" id="name" autofocus ng-model="mallInfo.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="website" class="col-md-3 control-label">网址</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="website" id="website" autofocus ng-model="mallInfo.website">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="col-md-3 control-label">用户名</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="username" id="username" autofocus ng-model="mallInfo.username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">密码</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="password" id="password" autofocus ng-model="mallInfo.password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mall_status_id" class="col-md-3 control-label">店铺状态</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="mall_status_id" id="mall_status_id" ng-model="mallInfo.mall_status_id" ng-options="mallStatuses.id as mallStatuses.name for mallStatuses in mallService.mallStatuses | orderBy:['name']">
+                                        <option value="">请选择店铺状态</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_id" class="col-md-3 control-label">负责人</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="user_id" id="user_id" ng-model="mallInfo.user_id" ng-options="user.id as user.name for user in mallService.usersOptional | orderBy:['groupId', 'name']">
+                                        <option value="">请选择负责人</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="remark" class="col-md-3 control-label">备注</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="remark" id="remark" autofocus ng-model="mallInfo.remark">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary btn-md">
+                                        <i class="fa fa-plus-circle"></i>
+                                        添加
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-show="mallInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>正在提交...</strong>
+                        </div>
+                        <div ng-if="mallInfo.addMall" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>新增店铺成功!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

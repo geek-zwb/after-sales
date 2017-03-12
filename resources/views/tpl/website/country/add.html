@@ -1,0 +1,55 @@
+<section class="mt20">
+    <!--新增服务器-->
+    <div class="main animsition">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <a onclick="history.back()" class="panel-title floatRight"><i class="fa fa-reply"></i></a>
+                         <h3 class="panel-title">新增国家</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form class="form-horizontal" role="form" ng-submit="fnAddCountry()">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">国家名</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="name" id="name" autofocus ng-model="countryInfo.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="abbreviation" class="col-md-3 control-label">国家缩写</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="abbreviation" id="abbreviation" autofocus ng-model="countryInfo.abbreviation">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">货币</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" ng-model="countryInfo.currency_id" ng-options="currency.currencyId as currency.currencyName for currency in currencies"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary btn-md">
+                                        <i class="fa fa-plus-circle"></i>
+                                        添加
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-show="countryInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>正在提交...</strong>
+                        </div>
+                        <div ng-if="countryInfo.addStatus" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>新增国家成功!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

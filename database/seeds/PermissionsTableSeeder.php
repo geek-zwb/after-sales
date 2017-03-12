@@ -1,0 +1,215 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class PermissionsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('permissions')->insert([
+            [
+                'id' => 1,
+                'name' => 'user.getProfile',
+                'label' => '用户自身信息',
+                'description' => '查看用户自身信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ], [
+                'id' => 2,
+                'name' => 'user.profileUpdate',
+                'label' => '修改用户自身信息',
+                'description' => '修改用户自身信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ], [
+                'id' => 3,
+                'name' => 'user.index',
+                'label' => '查看所有员工',
+                'description' => '查看所有员工信息，包括所属部门(角色)',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 4,
+                'name' => 'user.edit',
+                'label' => '修改员工',
+                'description' => '修改员工信息，包括所属部门(角色)，权限等',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 5,
+                'name' => 'user.create',
+                'label' => '新增员工',
+                'description' => '新增员工，包括所属部门(角色)，权限等',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 6,
+                'name' => 'user.destroy',
+                'label' => '删除员工',
+                'description' => '删除某个员工',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 7,
+                'name' => 'user.index',
+                'label' => '查看所有员工',
+                'description' => '查看所有员工信息，包括所属部门(角色)',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 8,
+                'name' => 'group.index',
+                'label' => '查看部门(角色)',
+                'description' => '查看所有部门(角色)信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 9,
+                'name' => 'group.edit',
+                'label' => '编辑部门(角色)',
+                'description' => '编辑部门(角色)，包括部门(角色)信息，拥有权限',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 10,
+                'name' => 'group.create',
+                'label' => '新增部门(角色)',
+                'description' => '新增部门(角色)，分配部门(角色)权限',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 11,
+                'name' => 'permission.index',
+                'label' => '权限信息',
+                'description' => '权限信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 12,
+                'name' => 'permission.store',
+                'label' => '新增权限',
+                'description' => '新增权限',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 13,
+                'name' => 'permission.update',
+                'label' => '权限修改',
+                'description' => '权限修改',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 14,
+                'name' => 'permission.destroy',
+                'label' => '权限删除',
+                'description' => '权限删除',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 15,
+                'name' => 'post.edit',
+                'label' => '新闻公告修改',
+                'description' => '新闻公告修改',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 16,
+                'name' => 'post.create',
+                'label' => '新闻公告新增',
+                'description' => '新闻公告新增',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 17,
+                'name' => 'post.destroy',
+                'label' => '新闻公告删除',
+                'description' => '新闻公告删除',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 18,
+                'name' => 'service.index',
+                'label' => '服务类别信息',
+                'description' => '服务类别信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 19,
+                'name' => 'service.store',
+                'label' => '新增服务类别',
+                'description' => '新增服务类别',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 20,
+                'name' => 'service.update',
+                'label' => '服务类别修改',
+                'description' => '服务类别修改',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 21,
+                'name' => 'service.destroy',
+                'label' => '服务类别删除',
+                'description' => '服务类别删除',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 22,
+                'name' => 'service.index',
+                'label' => '售后信息信息',
+                'description' => '售后信息信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 23,
+                'name' => 'service.store',
+                'label' => '新增售后信息',
+                'description' => '新增售后信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 24,
+                'name' => 'service.update',
+                'label' => '售后信息修改',
+                'description' => '服务售后信息',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'id' => 25,
+                'name' => 'service.destroy',
+                'label' => '售后信息删除',
+                'description' => '售后信息删除',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
+        ]);
+    }
+}

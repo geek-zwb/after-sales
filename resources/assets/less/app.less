@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{
+  font-size:16px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+h1{
+  .text-center;
+  line-height:16px;
+}
+
+.mt20(@margin_top:20px){
+  margin-top: @margin_top;
+}
+
+h2{
+  .mt20(20px);
+  .text-center;
+}
+
+@w300:300px;
+
+.w400{
+  width:@w300 + 400rem;
+}

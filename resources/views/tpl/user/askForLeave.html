@@ -1,0 +1,70 @@
+<section id="userAction" class="clearfix leave-desc" ng-controller="AskforLeaveController">
+    <div class="ask-for-leave">
+        <h2>请假条</h2>
+    </div>
+    <form id="leaveForm" name="useraskforLeave" ng-submit="User.askforLeave()" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="type" class="col-sm-2 control-label">请假类型</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                    <input type="radio" name="type" value="事假" id="inlineRadio1" ng-model="User.askLeaveInfo.type"> 事假
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="type" value="病假" id="inlineRadio1" ng-model="User.askLeaveInfo.type"> 病假
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="type" value="婚假" id="inlineRadio1" ng-model="User.askLeaveInfo.type"> 婚假
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="type" value="公假" id="inlineRadio1" ng-model="User.askLeaveInfo.type"> 公假
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="type" value="其他" id="inlineRadio1" ng-model="User.askLeaveInfo.type"> 其他
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="leave_reson" class="col-sm-2 control-label">请假事由</label>
+            <div class="col-sm-10">
+                <textarea name="leave_reson" id="remark" ng-model="User.askLeaveInfo.leave_reson" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">请假时间</label>
+            <div class="col-sm-3">
+                <datetimepicker dateID="begin" format="Y/m/d H:i" class="form-control" ng-model="User.askLeaveInfo.begin"></datetimepicker>
+                <!--<input name="begin" type="date" class="form-control" id="begin" ng-model="User.askLeaveInfo.begin">-->
+            </div>
+            <div class="col-sm-1"><span class="form-control">到</span></div>
+            <div class="col-sm-3">
+                <datetimepicker dateID="end" format="Y/m/d H:i" class="form-control" ng-model="User.askLeaveInfo.end"></datetimepicker>
+            </div>
+            <div class="col-sm-3"><span class="form-control">共&nbsp;<span ng-bind="User.askLeaveInfo.total_day">0</span>&nbsp;天&nbsp;<span ng-bind="User.askLeaveInfo.total_hour"></span>&nbsp;小时</span></div>
+            <div ng-if="User.askLeaveInfo.total_time > 9" class="col-sm-10 col-sm-offset-2">
+                <div class="alert alert-warning input-info" role="alert">
+                    <strong>温馨提示：</strong>超过1天,本页面提交申请后请及时和老板口头申请
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-offset-7 col-sm-5 control-label">申请人：<span ng-bind="User.profileData.name"></span></label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-4">
+                <button type="submit" class="btn btn-default" ng-disabled="useraskforLeave.$invalid">提交申请</button>
+            </div>
+        </div>
+    </form>
+    <div ng-show="User.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>正在提交!</strong>
+    </div>
+    <div ng-if="User.askLeaveInfo.status" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>申请成功!</strong>
+    </div>
+    <div ng-if="User.askLeaveInfo.err" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong ng-bind="User.askLeaveInfo.err">重复请假!</strong>
+    </div>
+</section>

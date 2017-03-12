@@ -1,0 +1,59 @@
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.floatRight {
+    float: right;
+}
+.floatLeft {
+    float: left;
+}
+
+.mt20 {
+    margin-top:20px;
+}
+
+.search-box { text-align:left!important;}
+
+.operationbox {width: 105px;}
+
+.form-inline .form-group{margin-bottom:5px!important;}
+
+
+@media screen and (min-width: 767px) {
+    /*login*/
+    .login-bg {
+        background: url("../images/loginbg.png") no-repeat;
+    }
+    .login-logo a {
+        color: #3c8dbc;
+    }
+}
+@media screen and (max-width: 767px) {
+    /*login*/
+    .login-bg {
+        background: url("../images/loginphone.jpeg") no-repeat;
+    }
+
+    /*mobile logo*/
+    .main-header .logo {
+        display: none;
+    }
+}
+
+[ui-sref] {
+    cursor: pointer;
+}
+a {
+    cursor: pointer;
+}
+
+.input-info {
+    margin-bottom: 0;
+    padding:3px;
+    margin-top:5px;
+}
+

@@ -1,0 +1,50 @@
+<section class="content-wrap">
+    <div class="container">
+        <div class="row">
+
+            <!--<main class="col-md-8 main-content">-->
+            <main class="main-content">
+
+
+                <article class="post">
+
+                    <header class="post-head">
+                        <h1 class="post-title" ng-bind="post.title"></h1>
+                        <section class="post-meta">
+                            <span class="author" ng-if="post.author">作者：<a ng-bind="post.author"></a>•</span>
+                            <time class="post-date" title="[: post.created_at :]">[: post.created_at | date:"yyyy年MM月dd日" :]</time>
+                        </section>
+                    </header>
+
+                    <!--<section class="featured-media">
+                        <img src="http://image.golaravel.com/9/a9/c367f99a8366ca86f7b889da25022.png" alt="">
+                    </section>-->
+
+                    <section class="post-content" ng-bind-html="post.description"></section>
+
+                    <footer class="post-footer clearfix">
+                        <div class="prev-next-wrap clearfix row">
+                            <a class="col-sm-3 col-sm-offset-2 btn btn-default" ng-if="prePost.id" ui-sref="post.postDescription({postId:prePost.id})"><i class="fa fa-angle-left fa-fw"></i> [: prePost.title :]</a>
+                            <a class="col-sm-3 col-sm-offset-2 btn btn-default" ng-if="nextPost.id" ui-sref="post.postDescription({postId:nextPost.id})">[: nextPost.title :]<i class="fa fa-angle-right fa-fw"></i></a>
+                        </div>
+                    </footer>
+                    <hr>
+
+                </article>
+
+            </main>
+
+            <!--<aside class="col-md-4 sidebar">
+                <div class="widget">
+                    <h4 class="title">文档</h4>
+                    <a href="http://lumen.golaravel.com/docs/" class="btn btn-default btn-block" target="_blank">Lumen 中文文档</a>
+                    <a href="http://www.golaravel.com/laravel/docs/5.0/" class="btn btn-default btn-block" target="_blank">5.0 中文文档</a>
+                    <a href="http://www.golaravel.com/laravel/docs/4.2/" class="btn btn-default btn-block" target="_blank">4.2 中文文档</a>
+                    <a href="http://www.golaravel.com/laravel/docs/4.1/" class="btn btn-default btn-block" target="_blank">4.1 中文文档</a>
+                    <a href="http://www.golaravel.com/laravel/docs/4.0/" class="btn btn-default btn-block" target="_blank">4.0 中文文档</a>
+                </div>
+            </aside>-->
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,135 @@
+<section class="mt20">
+    <!--新增网站-->
+    <div class="main animsition">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <a onclick="history.back()" class="panel-title floatRight"><i class="fa fa-reply"></i></a>
+                         <h3 class="panel-title">新增域名</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form class="form-horizontal" role="form" ng-submit="fnAddWebsite()">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">域名</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="name" id="name" autofocus ng-model="websiteInfo.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_server" class="col-md-3 control-label">服务器</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_server" id="domain_server" ng-model="websiteInfo.domain_server_id" ng-options="server.id as server.name for server in WebsiteSer.domainServers | orderBy:['name']">
+                                        <option value="">请选择服务器</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_country" class="col-md-3 control-label">国家</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_country" id="domain_country" ng-model="websiteInfo.domain_country_id" ng-options="country.id as country.name for country in WebsiteSer.domainCountries | orderBy:['name']"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_brand" class="col-md-3 control-label">品牌</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_server" id="domain_brand" ng-model="websiteInfo.domain_brand_id" ng-options="brand.id as brand.name for brand in WebsiteSer.domainBrands | orderBy:['name']"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_ad_status" class="col-md-3 control-label">广告状态</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_ad_status" id="domain_ad_status" ng-model="websiteInfo.domain_ad_status_id" ng-options="adStatus.id as adStatus.name for adStatus in WebsiteSer.domainAdStatuses | orderBy:['name']"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_website_status" class="col-md-3 control-label">网站状态</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_website_status" id="domain_website_status" ng-model="websiteInfo.domain_website_status_id" ng-options="websiteStatus.id as websiteStatus.name for websiteStatus in WebsiteSer.domainWebsiteStatuses | orderBy:['name']"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user" class="col-md-3 control-label">负责人</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="user" id="user" ng-model="websiteInfo.user_id" ng-options="user.id as user.name for user in WebsiteSer.usersOptional | orderBy:['groupId', 'name']"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ftp_ip" class="col-md-3 control-label">ftp ip</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="ftp_ip" id="ftp_ip" autofocus ng-model="websiteInfo.ftp_ip">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ftp_username" class="col-md-3 control-label">ftp username</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="ftp_username" id="ftp_username" autofocus ng-model="websiteInfo.ftp_username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ftp_password" class="col-md-3 control-label">ftp password</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="ftp_password" id="ftp_password" autofocus ng-model="websiteInfo.ftp_password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="background_username" class="col-md-3 control-label">后台账号</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="background_username" id="background_username" autofocus ng-model="websiteInfo.background_username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="background_password" class="col-md-3 control-label">密码</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="background_password" id="background_password" autofocus ng-model="websiteInfo.background_password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="database_username" class="col-md-3 control-label">数据库账号</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="database_username" id="database_username" autofocus ng-model="websiteInfo.database_username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="database_password" class="col-md-3 control-label">数据库密码</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="database_password" id="database_password" autofocus ng-model="websiteInfo.database_password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="domain_host" class="col-md-3 control-label">host账户</label>
+                                <div class="col-md-5">
+                                    <select class="form-control" name="domain_host" id="domain_host" ng-model="websiteInfo.domain_host_id" ng-options="server.id as server.name for server in WebsiteSer.domainHosts"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="remark" class="col-md-3 control-label">备注</label>
+                                <div class="col-md-5">
+                                    <textarea class="form-control" name="remark" id="remark" rows="6" ng-model="websiteInfo.remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary btn-md">
+                                        <i class="fa fa-plus-circle"></i>
+                                        添加
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-show="websiteInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>正在提交...</strong>
+                        </div>
+                        <div ng-if="websiteInfo.addStatus" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <strong>新增域名成功!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
