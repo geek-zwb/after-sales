@@ -1,4 +1,4 @@
-## order manage system
+## after-sales
 
 > ## 特别说明：所有内容，禁止一切形式的转载，发布以及用于任何其他用途。
 ### init
@@ -9,10 +9,7 @@
 > 设置了两个默认用户。
 ```
 // 超级管理员
-    newbeta@admin.com
-    newbeta
-//boss
-    newbeta@boss.com
-    newbeta
+    linsheng@admin.com
+    linsheng
 ```
 
