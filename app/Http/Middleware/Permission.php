@@ -8,7 +8,7 @@ class Permission
 {
     protected $except = [
         '/',
-        'home'
+        '/home'
     ];
     /**
      * Handle an incoming request.
@@ -34,8 +34,8 @@ class Permission
         //当前账户
         $user = \Auth::user();
 
-        if($user->id == 1 || $user->id == 2) {
-            //1 超级管理员 2 boss 跳过权限检查
+        if($user->id == 1) {
+            //1 超级管理员
             return $next($request);
         }
 

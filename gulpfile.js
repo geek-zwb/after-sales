@@ -50,7 +50,6 @@ elixir(function(mix) {
             'resources/assets/css/libs.css',
             'resources/assets/css/user.css',
             'resources/assets/css/post.css',
-            'resources/assets/css/order.css',
             'resources/assets/css/directive.css',
             'resources/assets/css/rewrite.css'
         ], 'public/css/app.css')
