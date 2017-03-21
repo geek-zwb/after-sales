@@ -136,6 +136,66 @@ orderApp.config([
                 templateUrl: './tpl/post/postManageDestroy.html',
                 controller: 'PostManageDestroyCtrl'
             })
+            //service
+            .state('service', {
+                url:'/service',
+                templateUrl: './tpl/service/base.html',
+                resolve:{
+                    loadDashboard:["$ocLazyLoad", function ($ocLazyLoad) {
+                        return $ocLazyLoad.load("serviceDashboard");
+                    }]
+                }
+            })
+            .state('service.index', {
+                url: '/index',
+                templateUrl: './tpl/service/index.html',
+                controller: 'ServiceIndexCtrl as vm'
+            })
+            .state('service.add', {
+                url: '/add',
+                templateUrl: './tpl/service/add.html',
+                controller: 'ServiceAddCtrl as vm'
+            })
+            .state('service.edit', {
+                url: '/edit/:serviceId',
+                templateUrl: './tpl/service/edit.html',
+                controller: 'ServiceEditCtrl as vm'
+            })
+            .state('service.destroy', {
+                url: '/destroy',
+                templateUrl: './tpl/service/destroy.html',
+                controller: 'ServiceDestroyCtrl as vm'
+            })
+            //info
+            .state('info', {
+                url:'/info',
+                templateUrl: './tpl/info/base.html',
+                resolve:{
+                    loadDashboard:["$ocLazyLoad", function ($ocLazyLoad) {
+                        return $ocLazyLoad.load("infoDashboard");
+                    }]
+                }
+            })
+            .state('info.index', {
+                url: '/index',
+                templateUrl: './tpl/post/index.html',
+                controller: 'InfoIndexCtrl as vm'
+            })
+            .state('info.add', {
+                url: '/add',
+                templateUrl: './tpl/post/add.html',
+                controller: 'InfoAddCtrl as vm'
+            })
+            .state('info.edit', {
+                url: '/edit/:infoId',
+                templateUrl: './tpl/post/edit.html',
+                controller: 'InfoEditCtrl as vm'
+            })
+            .state('info.destroy', {
+                url: '/destroy',
+                templateUrl: './tpl/info/destroy.html',
+                controller: 'InfoDestroyCtrl as vm'
+            })
     }
     ])
     .run([

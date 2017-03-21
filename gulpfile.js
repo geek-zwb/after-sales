@@ -59,6 +59,6 @@ elixir(function(mix) {
         .copy(['public/fonts'], 'public/build/fonts')
         .version(assets)
         .browserSync({
-            proxy: 'autoaftersale.com'
+            proxy: 'www.autoaftersale.com'
         });
 });

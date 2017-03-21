@@ -68,7 +68,8 @@ class GroupController extends Controller
      * 所有部门
      * @return array
      */
-    public function index () {
+    public function index ()
+    {
         $data['recordsFiltered'] = Group::count();
         $data['data'] = Group::with('permissions')->get()->keyBy('id');
         return ['status' => 1, 'data' => $data];

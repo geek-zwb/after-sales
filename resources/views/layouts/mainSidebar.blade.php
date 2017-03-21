@@ -49,26 +49,26 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview" ng-class="{active: $state.includes('order')}">
+            <li class="treeview" ng-class="{active: $state.includes('info') || $state.includes('service')}">
                 <a><i class="fa fa-reorder"></i><span>售后信息管理</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li ng-class="{active: $state.includes('order.orderStatus')}">
-                        <a ui-sref="order.orderStatus.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>售后信息分类</a>
+                    <li ng-class="{active: $state.includes('service')}">
+                        <a ui-sref="service.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>售后信息分类</a>
                     </li>
-                    <li ng-class="{active: $state.includes('order.customerServiceDepartment')}">
-                        <a ui-sref="order.customerServiceDepartment.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bell"></i>售后服务</a>
+                    <li ng-class="{active: $state.includes('info')}">
+                        <a ui-sref="info.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bell"></i>售后服务</a>
                     </li>
-                    <li ng-class="{active: $state.includes('order.orderDepartment')}">
-                        <a ui-sref="order.orderDepartment.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-suitcase"></i>产品安装</a>
+                    <li>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-suitcase"></i>产品安装</a>
                     </li>
-                    <li ng-class="{active: $state.includes('order.purchaseGroup')}">
-                        <a ui-sref="order.purchaseGroup.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-send-o"></i>产品维修</a>
+                    <li>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-send-o"></i>产品维修</a>
                     </li>
-                    <li ng-class="{active: $state.includes('order.deliveryDepartment')}">
-                        <a ui-sref="order.deliveryDepartment.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-send-o"></i>产品退换</a>
+                    <li>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-send-o"></i>产品退换</a>
                     </li>
-                    <li ng-class="{active: $state.includes('order.supplier')}">
-                        <a ui-sref="order.supplier.index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-handshake-o"></i>产品回访</a>
+                    <li>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-handshake-o"></i>产品回访</a>
                     </li>
                 </ul>
             </li>

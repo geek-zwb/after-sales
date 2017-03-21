@@ -58,88 +58,14 @@ Route::group(['middleware' => ['auth', 'permission']], function() {
     Route::get('post/index', ['uses' => 'Manager\PostController@allPost']);//
     Route::resource('post', 'Manager\PostController', ['names' => ['update' => 'post.edit', 'store' => 'post.create']]);
 
-    //performance
-    Route::post('performance/index', ['uses' => 'Manager\PerformanceController@index']);
-    Route::put('performance/{id}', ['uses' => 'Manager\PerformanceController@update']);
+    //服务类型
+    Route::post('service/index', ['as' => 'service.index', 'uses' => 'Info\ServiceController@index']);
+    Route::resource('service', 'Info\ServiceController', ['names' => ['update' => 'service.edit', 'store' => 'service.create']]);
 
-    //domain server 服务器管理
-    Route::get('server/parentServers', ['uses' => 'Domain\DomainServerController@parentServers']);
-    Route::resource('server', 'Domain\DomainServerController', ['names' => ['update' => 'domainServer.edit', 'store' => 'domainServer.create']]);
-
-    //domain country
-    Route::resource('country', 'Domain\DomainCountryController', ['names' => ['update' => 'domainCountry.edit', 'store' => 'domainCountry.create']]);
-
-    //doamin brand
-    Route::resource('brand', 'Domain\DomainBrandController', ['names' => ['update' => 'domainBrand.edit', 'store' => 'domainBrand.create']]);
-
-    //domain Ad status
-    Route::resource('adStatus', 'Domain\DomainAdStatusController', ['names' => ['update' => 'domainAdStatus.edit', 'store' => 'domainAdStatus.create']]);
-
-    //domain website status
-    Route::resource('websiteStatus', 'Domain\DomainWebsiteStatusController', ['names' => ['update' => 'domainWebsiteStatus.edit', 'store' => 'domainWebsiteStatus.create']]);
-
-    //domain host
-    Route::resource('host', 'Domain\DomainHostController', ['names' => ['update' => 'domainHost.edit', 'store' => 'domainHost.create']]);
-
-    //domain website 网站管理
-    Route::post('website/index', ['as'=> 'website.index', 'uses' => 'Domain\DomainWebsiteController@index']);
-    Route::resource('website', 'Domain\DomainWebsiteController', ['names' => ['update' => 'domainWebsite.edit', 'store' => 'domainWebsite.create']]);
-
-    //order status
-    Route::resource('orderStatus', 'Order\OrderStatusController', ['names' => ['update' => 'orderStatus.edit', 'store' => 'orderStatus.create']]);
-
-    //order pay after status 付款后订单状态
-    Route::resource('orderPayAfterStatus', 'Order\OdPayAfterStatusController', ['names' => ['update' => 'orderPayAfterStatus.edit', 'store' => 'orderPayAfterStatus.create']]);
-
-    //货运方式 如EMS
-    Route::resource('express', 'Order\ExpressController', ['names' => ['update' => 'express.edit', 'store' => 'express.create']]);
-
-    //快递发货公司
-    Route::resource('expressCompany', 'Order\ExpressCompanyController', ['names' => ['update' => 'expressCompany.edit', 'store' => 'expressCompany.create']]);
-
-    //order
-        //客服部
-    Route::post('customerService/order', ['as' => 'customerService.order', 'uses' => 'Order\CustomerServiceDepartmentController@index']);
-    Route::post('customerService/ordersUpdate', ['as' => 'customerService.update', 'uses' => 'Order\CustomerServiceDepartmentController@ordersUpdate']);
-        //订货部
-    Route::any('orderDepartment/order', ['as' => 'orderDepartment.order', 'uses' => 'Order\OrderDepartmentController@index']);
-    Route::post('productsToPurchaseGroup', ['as' => 'orderDepartment.productsToPurchaseGroup', 'uses' => 'Order\OrderDepartmentController@addProductsToPurchaseGroup']);
-            //订货分组
-    Route::resource('purchaseGroup', 'Order\PurchaseGroupController', ['names' => ['update' => 'purchaseGroup.edit', 'store' => 'purchaseGroup.create']]);
-
-        //发货部
-    Route::any('deliveryDepartment/order', ['as' => 'deliveryDepartment.order', 'uses' => 'Order\DeliveryDepartmentController@index']);
-    Route::any('deliveryDepartment/exportDHL', ['as' => 'deliveryDepartment.exportdhl', 'uses' => 'Order\DeliveryDepartmentController@exportDHL']);
-    Route::any('deliveryDepartment/barCode', ['as' => 'deliveryDepartment.barCode', 'uses' => 'Order\DeliveryDepartmentController@barCode']);
-    Route::post('productsToShippingGroup', ['as' => 'deliveryDepartment.productsToShippingGroup', 'uses' => 'Order\DeliveryDepartmentController@addProductsToShippingGroup']);
-    //Route::post('')
-            //发货分组
-    Route::resource('shippingGroup', 'Order\ShippingGroupController', ['names' => ['update' => 'shippingGroup.edit', 'store' => 'shippingGroup.create']]);
-
-    //供应商
-    Route::resource('supplier', 'Supplier\SupplierController');
-
-    //订单产品分类
-    Route::resource('orderCategory', 'Order\OrderCategoryController', ['names' => ['update' => 'orderCategory.edit', 'store' => 'orderCategory.create']]);
-
-    //店铺管理
-    Route::resource('mall', 'Mall\MallController', ['names' => ['update' => 'mall.edit', 'store' => 'mall.create']]);
-
-    //店铺状态
-    Route::resource('mallStatus', 'Mall\MallStatusController', ['names' => ['update' => 'mallStatus.edit', 'store' => 'mallStatus.create']]);
-
-    //付款方式
-    Route::resource('mallPayType', 'Mall\MallPayTypeController', ['names' => ['update' => 'mallPayType.edit', 'store' => 'mallPayType.create']]);
-
-    Route::resource('deliveryAddress', 'Order\DeliveryAddressController', ['names' => ['update' => 'deliveryAddress.edit', 'store' => 'deliveryAddress.create']]);
-
-    //产品及库存
-    Route::any('stock/index', ['as' => 'stock.index', 'uses' => 'StockController@index']);
-    Route::post('stock/update', ['as' => 'stock.update', 'uses' => 'StockController@updateStocks']);
-
-    //订单详情
-    Route::put('orderDetail/{orderId}', ['as' => 'order.detail', 'uses' => 'Order\OrderDetailsController@index']);
-});
+    //服务信息统一的增删改查
+    Route::post('info/index', ['as' => 'info.index', 'uses' => 'Info\InfoController@index']);
+    Route::resource('info', 'Info\InfoController', ['names' => ['update' => 'info.edit', 'store' => 'info.create']]);
+    });
 
 Route::get('/', ['middleware' => 'auth', function () {
     return view('index');
