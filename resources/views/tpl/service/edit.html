@@ -1,5 +1,5 @@
 <section class="mt20">
-    <!--修改订单状态-->
+    <!--修改服务类型-->
     <div class="main animsition">
         <div class="container-fluid">
 
@@ -7,21 +7,20 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                          <a onclick="history.back()" class="panel-title floatRight"><i class="fa fa-reply"></i></a>
-                         <h3 class="panel-title">修改订单状态</h3>
+                         <h3 class="panel-title">修改服务类型</h3>
                     </div>
                     <div class="panel-body">
-
-                        <form class="form-horizontal" role="form" ng-submit="fnEditMall()">
+                        <form class="form-horizontal" role="form" ng-submit="fnEditService()">
                             <div class="form-group">
-                                <label for="orderStatusName" class="col-md-3 control-label">订单状态</label>
+                                <label for="name" class="col-md-3 control-label">服务类型</label>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="name" id="name" autofocus ng-model="mallInfo.name">
+                                    <input type="text" class="form-control" name="name" id="name" autofocus ng-model="serviceInfo.name">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="sort" class="col-md-3 control-label">颜色标识</label>
+                                <label for="description" class="col-md-3 control-label">描述</label>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="sort" id="sort" autofocus ng-model="mallInfo.sort">
+                                    <input type="text" class="form-control" name="description" id="description" autofocus ng-model="serviceInfo.description">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -33,13 +32,13 @@
                                 </div>
                             </div>
                         </form>
-                        <div ng-show="mallInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                        <div ng-show="serviceInfo.pending" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                             <strong>正在提交...</strong>
                         </div>
-                        <div ng-if="mallInfo.editMall" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
+                        <div ng-if="serviceInfo.editStatus" class="col-sm-offset-2 col-sm-6 alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <strong>修改订单状态成功!</strong>
+                            <strong>修改服务类型成功!</strong>
                         </div>
                     </div>
                 </div>

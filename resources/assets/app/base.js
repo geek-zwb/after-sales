@@ -56,4 +56,7 @@
                 paginationMaxBlocks: 3,
                 paginationMinBlocks: 1
             }
+        }])
+        .config(['$qProvider', function ($qProvider) {
+            $qProvider.errorOnUnhandledRejections(false);
         }]);

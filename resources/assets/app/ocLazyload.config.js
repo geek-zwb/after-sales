@@ -21,6 +21,18 @@ orderApp.constant("Modules_Config",[
             files:[
                 "build/app/post/post.js"
             ]
+        },
+        {
+            name:"serviceDashboard",
+            files:[
+                "build/app/service/service.js"
+            ]
+        },
+        {
+            name:"infoDashboard",
+            files:[
+                "build/app/info/info.js"
+            ]
         }
     ])
     .config([

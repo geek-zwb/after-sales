@@ -38,12 +38,12 @@ elixir(function(mix) {
             'assets/app/route.config.js'
         ], 'public/js/appinit.js','./resources/')
         .scripts([
-            './public/libs/lodash/lodash.js',
-            './resources/assets/app/common/directives/orderTrackedTable.js',
-            './public/libs/jquerydatetime/jquery.datetimepicker.js',
-            './resources/assets/app/common/directives/angular.datetime.js',
-            './resources/assets/app/common/service/common.js',
-            './resources/assets/app/user/user.js'
+            'public/libs/loadsh/lodash.js',
+            'resources/assets/app/common/directives/orderTrackedTable.js',
+            'public/libs/jquerydatetime/jquery.datetimepicker.js',
+            'resources/assets/app/common/directives/angular.datetime.js',
+            'resources/assets/app/common/service/common.js',
+            'resources/assets/app/user/user.js'
         ], 'public/js/app.js')
         .styles([
             'resources/assets/css/base.css',
@@ -53,7 +53,7 @@ elixir(function(mix) {
             'resources/assets/css/directive.css',
             'resources/assets/css/rewrite.css'
         ], 'public/css/app.css')
-        .ngHtml2Js('./resources/views/tpl/!**!/!*.html')
+        .ngHtml2Js('./resources/views/tpl/**/*.html')
         .appJs()
         .copy([bowerDir + 'font-awesome/fonts', bowerDir+'bootstrap/fonts'], 'public/build/fonts')
         .copy(['public/fonts'], 'public/build/fonts')

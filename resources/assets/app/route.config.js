@@ -139,7 +139,7 @@ orderApp.config([
             //service
             .state('service', {
                 url:'/service',
-                templateUrl: './tpl/service/base.html',
+                template: '<div ui-view></div>',
                 resolve:{
                     loadDashboard:["$ocLazyLoad", function ($ocLazyLoad) {
                         return $ocLazyLoad.load("serviceDashboard");
@@ -169,7 +169,7 @@ orderApp.config([
             //info
             .state('info', {
                 url:'/info',
-                templateUrl: './tpl/info/base.html',
+                template: '<div ui-view></div>',
                 resolve:{
                     loadDashboard:["$ocLazyLoad", function ($ocLazyLoad) {
                         return $ocLazyLoad.load("infoDashboard");
@@ -178,23 +178,18 @@ orderApp.config([
             })
             .state('info.index', {
                 url: '/index',
-                templateUrl: './tpl/post/index.html',
+                templateUrl: './tpl/info/index.html',
                 controller: 'InfoIndexCtrl as vm'
             })
             .state('info.add', {
                 url: '/add',
-                templateUrl: './tpl/post/add.html',
+                templateUrl: './tpl/info/add.html',
                 controller: 'InfoAddCtrl as vm'
             })
             .state('info.edit', {
                 url: '/edit/:infoId',
-                templateUrl: './tpl/post/edit.html',
+                templateUrl: './tpl/info/edit.html',
                 controller: 'InfoEditCtrl as vm'
-            })
-            .state('info.destroy', {
-                url: '/destroy',
-                templateUrl: './tpl/info/destroy.html',
-                controller: 'InfoDestroyCtrl as vm'
             })
     }
     ])

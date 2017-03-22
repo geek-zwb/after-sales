@@ -1,0 +1,63 @@
+<section class="mt20">
+    <div class="row" style="margin:5px;">
+        <div class="col-sm-6 text-left">
+            <div id="tags-table_filter" class="dataTables_filter search-box">
+                <label>搜索:<input type="search" class="form-control input-sm" ng-model="vm.filterValue" ng-change="vm.fnSearchChange()"></label>
+            </div>
+        </div>
+        <div class="col-sm-6 text-right">
+            <div class="btn-group pull-right">
+                <button class="btn btn-default" ng-if="vm.isEditing" ng-click="vm.cancelChanges()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button class="btn btn-primary" ng-if="!vm.isEditing" ng-click="vm.isEditing = true">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button class="btn btn-primary" ng-if="vm.isEditing" ng-disabled="!vm.hasChanges() || vm.tableTracker.$invalid" ng-click="vm.saveChanges()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <table  ng-table="vm.tableParams" class="table table-bordered table-hover table-condensed editable-table"
+                            ng-form="vm.tableForm" disable-filter="vm.isAdding" nbg-tracked-table="vm.tableTracker">
+                        <tr ng-repeat="row in $data" ng-form="rowForm" nbg-tracked-table-row="row">
+                            <td data-title="'Id'" sortable="'id'" filter="{id: 'text'}"><a ui-sref="order.detail({orderId:row.id})">[: row.id :]</a></td>
+                            <td data-title="'日期'" filter="{date_purchased: 'text'}">[: row.date_purchased :]</td>
+                            <td data-title="'整单日期'" filter="{order_pay_after_date: 'text'}">[: row.order_pay_after_date :]</td>
+                            <td data-title="'网站'" filter="{website_name: 'text'}">[: row.website_name :]</td>
+                            <td data-title="'订单号'" filter="{website_order_id: 'text'}">[: row.website_order_id :]</td>
+                            <td data-title="'客户名字'" filter="{name: 'text'}">[: row.name :]</td>
+                            <td data-title="'客户邮箱'" filter="{email: 'text'}">[: row.email :]</td>
+                            <td data-title="'金额'" filter="{order_total: 'text'}">[: row.order_total | currency:row.order_currency :]</td>
+                            <td title="'备注'" filter="{remark: 'text'}" ng-switch="vm.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="remark" demo-tracked-table-cell>
+                                <span ng-switch-default class="editable-text">[: row.remark :]</span>
+                                <div class="controls" ng-class="remark.$invalid && remark.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                                    <input type="text" name="remark" ng-model="row.remark" class="editable-input form-control input-sm" required />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="box-body">
+                    <div class="floatLeft">
+                        <ul class="pagination-sm no-margin" previous-text="上一页" next-text="下一页" uib-pagination ng-change="vm.fnPageChanged()" items-per-page="vm.searchRemoteInfo.itemsPerPage" num-pages="vm.searchRemoteInfo.numPages" total-items="vm.searchRemoteInfo.totalItems" ng-model="vm.searchRemoteInfo.currentPage" max-size="vm.searchRemoteInfo.maxSize" boundary-link-numbers="true"></ul>
+                    </div>
+                    <div class="floatRight">
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-click="vm.fnSetItemsPerPage(10)" ng-model="itemsPerPage" uib-btn-radio="10">10</label>
+                            <label class="btn btn-default" ng-click="vm.fnSetItemsPerPage(20)" ng-model="itemsPerPage" uib-btn-radio="20">20</label>
+                            <label class="btn btn-default" ng-click="vm.fnSetItemsPerPage(50)" ng-model="itemsPerPage" uib-btn-radio="50">50</label>
+                            <label class="btn btn-default" ng-click="vm.fnSetItemsPerPage(100)" ng-model="itemsPerPage" uib-btn-radio="100">100</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
