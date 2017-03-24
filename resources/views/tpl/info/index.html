@@ -27,18 +27,34 @@
                     <table  ng-table="vm.tableParams" class="table table-bordered table-hover table-condensed editable-table"
                             ng-form="vm.tableForm" disable-filter="vm.isAdding" nbg-tracked-table="vm.tableTracker">
                         <tr ng-repeat="row in $data" ng-form="rowForm" nbg-tracked-table-row="row">
-                            <td data-title="'Id'" sortable="'id'" filter="{id: 'text'}"><a ui-sref="order.detail({orderId:row.id})">[: row.id :]</a></td>
-                            <td data-title="'日期'" filter="{date_purchased: 'text'}">[: row.date_purchased :]</td>
-                            <td data-title="'整单日期'" filter="{order_pay_after_date: 'text'}">[: row.order_pay_after_date :]</td>
-                            <td data-title="'网站'" filter="{website_name: 'text'}">[: row.website_name :]</td>
-                            <td data-title="'订单号'" filter="{website_order_id: 'text'}">[: row.website_order_id :]</td>
-                            <td data-title="'客户名字'" filter="{name: 'text'}">[: row.name :]</td>
-                            <td data-title="'客户邮箱'" filter="{email: 'text'}">[: row.email :]</td>
-                            <td data-title="'金额'" filter="{order_total: 'text'}">[: row.order_total | currency:row.order_currency :]</td>
-                            <td title="'备注'" filter="{remark: 'text'}" ng-switch="vm.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="remark" demo-tracked-table-cell>
+                            <td data-title="'Id'" sortable="'id'" filter="{id: 'text'}">[: row.id :]</td>
+                            <td title="'信息名称'" filter="{name: 'text'}" ng-switch="vm.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="name" demo-tracked-table-cell>
+                                <span ng-switch-default class="editable-text">[: row.name :]</span>
+                                <div class="controls" ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                                    <input type="text" name="name" ng-model="row.name" class="editable-input form-control input-sm" required />
+                                </div>
+                            </td>
+                            <td title="'信息详情'" filter="{description: 'text'}" ng-switch="vm.isEditing" ng-class="description.$dirty ? 'bg-warning' : ''" ng-form="description" demo-tracked-table-cell>
+                                <span ng-switch-default class="editable-text">[: row.description :]</span>
+                                <div class="controls" ng-class="description.$invalid && description.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                                    <input type="text" name="description" ng-model="row.description" class="editable-input form-control input-sm" required />
+                                </div>
+                            </td>
+                            <td data-title="'服务类型'" filter="{website_name: 'text'}">[: row.service_id :]</td>
+                            <td title="'备注'" filter="{feedback: 'text'}" ng-switch="vm.isEditing" ng-class="remark.$dirty ? 'bg-warning' : ''" ng-form="remark" demo-tracked-table-cell>
                                 <span ng-switch-default class="editable-text">[: row.remark :]</span>
                                 <div class="controls" ng-class="remark.$invalid && remark.$dirty ? 'has-error' : ''" ng-switch-when="true">
                                     <input type="text" name="remark" ng-model="row.remark" class="editable-input form-control input-sm" required />
+                                </div>
+                            </td>
+                            <td data-title="'处理人'" filter="{name: 'text'}">[: row.user_id :]</td>
+                            <td data-title="'顾客'" filter="{email: 'text'}">[: row.customer_id :]</td>
+                            <td data-title="'新增信息时间'" filter="{created_at: 'text'}">[: row.created_at :]</td>
+                            <td data-title="'处理时间'" filter="{resolve_time: 'text'}">[: row.resolve_time :]</td>
+                            <td title="'客户反馈信息，评价'" filter="{feedback: 'text'}" ng-switch="vm.isEditing" ng-class="feedback.$dirty ? 'bg-warning' : ''" ng-form="feedback" demo-tracked-table-cell>
+                                <span ng-switch-default class="editable-text">[: row.feedback :]</span>
+                                <div class="controls" ng-class="feedback.$invalid && feedback.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                                    <input type="text" name="remark" ng-model="row.feedback" class="editable-input form-control input-sm" required />
                                 </div>
                             </td>
                         </tr>

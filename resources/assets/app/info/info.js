@@ -31,7 +31,7 @@
                     deffered.reject();
                     return;
                 }
-                //params.total(r.data.data.recordsTotal); no need ng-table with pagination
+                //params.total(r.data.data.recordsTotal); //no need ng-table with pagination
                 searchRemoteInfo.totalItems = r.data.data.recordsTotal;
                 deffered.resolve(r.data.data.data);
             });
@@ -43,11 +43,14 @@
         
         var vm = this;
 
-        vm.searchRemoteInfo = {};
-        vm.searchRemoteInfo.totalItems = 50;
-        vm.searchRemoteInfo.currentPage = 1;
+        //default info
+        vm.searchRemoteInfo = {
+            totalItems: 50,
+            currentPage: 1,
+            itemsPerPage: 10
+        };
+
         //vm.searchRemoteInfo.numPages
-        vm.searchRemoteInfo.itemsPerPage = 10;
         $scope.itemsPerPage = vm.searchRemoteInfo.itemsPerPage;
 
         var originalData = null;
@@ -152,6 +155,7 @@
             $http.post('info/infosUpdate', infosChanged).then(function (r) {
                 if (r.data.status == 1) {
                     originalData = angular.copy(vm.tableParams.data);
+                    dialogs.notify('提示', '修改成功', {size: 'sm'})
                 }
             })
         }

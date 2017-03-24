@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'permission']], function() {
 
     //服务信息统一的增删改查
     Route::post('info/index', ['as' => 'info.index', 'uses' => 'Info\InfoController@index']);
+    Route::post('info/infosUpdate', ['as' => 'info.index', 'uses' => 'Info\InfoController@infosUpdate']);
     Route::resource('info', 'Info\InfoController', ['names' => ['update' => 'info.edit', 'store' => 'info.create']]);
     });
 

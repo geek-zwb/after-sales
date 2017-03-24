@@ -12,16 +12,16 @@ class InfoController extends Controller
 {
     protected $fields = [
         'id' => 'equals',
-        'name' => 'equals',
-        'description' => 'equals',
-        //'service_id' => 'equals',
-        'remark' => 'equals',
+        'name' => 'like',
+        'description' => 'like',
+        'service_id' => 'equals',
+        'remark' => 'like',
         'user_id' => 'equals',
         'customer_id' => 'equals',
-        'resolve_time' => 'equals',
-        'feedback' => 'equals',
-        'created_at' => 'equals',
-        'updated_at' => 'equals'
+        'resolve_time' => 'like',
+        'feedback' => 'like',
+        'created_at' => 'like',
+        'updated_at' => 'like'
     ];
 
     /**
@@ -38,11 +38,11 @@ class InfoController extends Controller
         $orderBy = substr($orderBy, 1)?:'id';//排序
         
         //服务类型
-        if(!$request->has('service_id')) {
+        /*if(!$request->has('service_id')) {
             return ['status' => 0, 'msg' => '服务类型id is require'];
         }
         
-        $serviceId = $request->get('service_id');
+        $serviceId = $request->get('service_id');*/
 
         //filter
         $filters = $request->get('filters');
@@ -52,7 +52,8 @@ class InfoController extends Controller
         $skip = ($currentPage - 1)*$itemsPerPage;
         $take = $request->get('takeCount')?:$itemsPerPage;
 
-        $infos = Info::where('service_id', $serviceId);
+        //$infos = Info::where('service_id', $serviceId);
+        $infos = new Info();
 
         if(!empty($filters)) {
             foreach ($filters as $key => $value) {
@@ -163,5 +164,27 @@ class InfoController extends Controller
         Info::destroy($id);
 
         return ['status' => 1, 'msg' => 'delete success'];
+    }
+
+
+    public function infosUpdate(Request $request)
+    {
+        //是一个数组，含有一个info或多个info信息
+        $infos = $request->all();
+        foreach ($infos as $info) {
+            $infoId = $this->infoUpdate($info);
+            if(!$infoId) ['status' => 0, 'data' => 'error'];
+        }
+
+        return ['status' => 1, 'msg' => '修改成功'];
+
+    }
+
+    public function infoUpdate($info)
+    {
+        $infoobj = Info::updateOrCreate(['id' => $info['id']], $info);
+
+        if($infoobj->id) return true;
+        return false;
     }
 }
